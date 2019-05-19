@@ -6,16 +6,14 @@ class TasksController < ApplicationController
   end
 
   def show
-      
   end
 
   def new
-      @tasks = Task.new
+    @tasks = Task.new
   end
 
   def create
-       @tasks = Task.new(task_params)
-
+    @tasks = Task.new(task_params)
     if @tasks.save
       flash[:success] = 'Task が正常に投稿されました'
       redirect_to @tasks
@@ -30,8 +28,6 @@ class TasksController < ApplicationController
   end
 
   def update
-     
-
     if @tasks.update(task_params)
       flash[:success] = 'Task は正常に更新されました'
       redirect_to @tasks
@@ -56,6 +52,6 @@ class TasksController < ApplicationController
   end
   
   def task_params
-    params.require(:task).permit(:content)
+    params.require(:task).permit(:content,:status)
   end
 end
