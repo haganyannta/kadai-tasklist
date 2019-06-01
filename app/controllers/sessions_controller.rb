@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    email = params[:session][:email].downcase
     password = params[:session][:password]
     if login(email, password)
       flash[:success] = 'ログインに成功しました。'
@@ -21,7 +22,8 @@ class SessionsController < ApplicationController
   
   private
 
-  def login(password)
+  def login(email, password)
+    @user = User.find_by(email: email)
     if @user && @user.authenticate(password)
       # ログイン成功
       session[:user_id] = @user.id

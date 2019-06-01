@@ -10,7 +10,10 @@
   </head>
 
   <body>
-    <%= render 'layouts/flash_tasks' %>
-    <%= yield %>
+    <%= render 'layouts/navbar' %>
+    <div>
+      <%= render 'layouts/flash_tasks' %>
+      <%= yield %>
+    </div>
   </body>
 </html>
