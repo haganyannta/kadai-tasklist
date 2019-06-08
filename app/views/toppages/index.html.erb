@@ -3,9 +3,14 @@
     <aside class="col-sm-4">
       <%= form_with(model: @task, local: true) do |f| %>
         <div class="form-group">
-          <%= f.text_area :content, class: 'form-control', rows: 5 %>
+          <%= f.label :status, 'ステータス' %>
+          <%= f.text_field :status %>
+  
+          <%= f.label :content, 'タスク' %>
+          <%= f.text_field :content %>
         </div>
-        <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
+        
+        <%= f.submit '作成' %>
       <% end %>
     </aside>
     <div class="col-sm-8">
